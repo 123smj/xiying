@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="com.tuser.bean">
+    <class name="TradeUserMcht" table="TRADE_USER_MCHT">
+        <meta attribute="sync-DAO">false</meta>
+
+        <id
+                name="MchtNo"
+                type="string"
+                column="MCHT_NO"
+        >
+            <generator class="assigned"/>
+        </id>
+        <property
+                name="Password"
+                column="PASSWORD"
+                type="string"
+                not-null="true"
+                length="100"
+        />
+        <property
+                name="createType"
+                column="CREATE_TYPE"
+                type="string"
+                not-null="true"
+                length="2"
+        />
+        <property
+                name="createTime"
+                column="CREATE_TIME"
+                type="string"
+                not-null="false"
+                length="14"
+        />
+        <property
+                name="updateTime"
+                column="UPDATE_TIME"
+                type="string"
+                not-null="false"
+                length="14"
+        />
+        <property
+                name="bindUUID"
+                column="bindUUID"
+                type="string"
+                not-null="false"
+                length="32"
+        />
+    </class>
+</hibernate-mapping>

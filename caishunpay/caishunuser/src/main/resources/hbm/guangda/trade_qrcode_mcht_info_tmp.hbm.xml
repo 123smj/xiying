@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.trade.bean.own">
+    <class name="QrcodeMchtInfoTmp" table="TRADE_QRCODE_MCHT_INFO_TMP">
+        <id name="mchtNo" column="mcht_no" type="string">
+            <generator class="assigned"/>
+        </id>
+        <property name="mchtName" column="mcht_name" type="string"></property>
+        <property name="companyName" column="company_name" type="string"></property>
+        <property name="channelMchtNo" column="channel_mcht_no" type="string"></property>
+        <property name="secretKey" column="secret_key" type="string"></property>
+        <property name="channel_id" column="channel_id" type="string"></property>
+        <property name="crtTime" column="crt_time" type="string"></property>
+
+        <property name="company_id" column="company_id" type="string"></property>
+        <property name="phone" column="phone" type="string"></property>
+        <property name="identity_no" column="identity_no" type="string"></property>
+        <property name="bank_card_no" column="bank_card_no" type="string"></property>
+        <property name="bank_name" column="bank_name" type="string"></property>
+        <property name="card_name" column="card_name" type="string"></property>
+        <property name="bank_no" column="bank_no" type="string"></property>
+        <property name="lisence_addr" column="lisence_addr" type="string"></property>
+        <property name="return_native_qrcode" column="return_native_qrcode"
+                  type="string"></property>
+
+        <property name="debit_card_fee_value" column="DEBIT_CARD_FEE_VALUE" type="double"/>
+        <property name="debit_card_max_fee" column="DEBIT_CARD_MAX_FEE" type="double"/>
+        <property name="credit_card_fee_value" column="CREDIT_CARD_FEE_VALUE" type="double"/>
+        <property name="wechat_fee_value" column="WECHAT_FEE_VALUE" type="double"/>
+        <property name="alipay_fee_value" column="ALIPAY_FEE_VALUE" type="double"/>
+        <property name="qq_fee_value" column="qq_fee_value" type="double"/>
+        <property name="quickpay_fee_value" column="QUICKPAY_FEE_VALUE" type="double"/>
+        <property name="netpay_fee_value" column="netpay_fee_value" type="double"/>
+        <property name="ip_addr" column="ip_addr" type="string"></property>
+        <property name="update_time" column="update_time" type="string"></property>
+        <property name="update_opr" column="update_opr" type="string"></property>
+        <property name="status" column="status" type="string"></property>
+        <property name="trade_source_list" column="trade_source_list" type="string"></property>
+        <property name="is_t1_liq" column="is_t1_liq" type="string"/>
+        <property name="single_extra_fee" column="single_extra_fee" type="integer"/>
+
+        <property name="jump_flag" column="jump_flag" type="string"></property>
+        <property name="jump_group" column="jump_group" type="string"></property>
+
+        <property name="email" column="email" type="string"></property>
+        <property name="dfcard_day_limit" column="dfcard_day_limit" type="integer"></property>
+
+        <property name="refuse_reason" column="refuse_reason" type="string"></property>
+        <property name="recheck_time" column="recheck_time" type="string"></property>
+        <property name="recheck_opr" column="recheck_opr" type="string"></property>
+
+    </class>
+</hibernate-mapping>

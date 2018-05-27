@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dwr>
+	<allow>
+		<!--下拉列表数据-->
+		<create creator="new" javascript="SelectOptionsDWR" scope="request">
+			<param name="class" value="com.common.dwr.SelectOptionsDWR" />
+		</create>
+		<!--授权管理
+		<create creator="new" javascript="AuthoriseDwr" scope="request">
+			<param name="class" value="com.common.dwr.AuthoriseDwr" />
+		</create>
+		图表数据
+		<create creator="new" javascript="ChartUtilDWR" scope="request">
+			<param name="class" value="com.common.dwr.ChartUtilDWR" />
+		</create>
+	--></allow>
+</dwr>

@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+		xmlns:tx="http://www.springframework.org/schema/tx"
+		xmlns:aop="http://www.springframework.org/schema/aop"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd 
+        http://www.springframework.org/schema/util 
+        http://www.springframework.org/schema/util/spring-util-4.0.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/tx
+        http://www.springframework.org/schema/tx/spring-tx-4.2.xsd
+        http://www.springframework.org/schema/aop
+        http://www.springframework.org/schema/aop/spring-aop-4.2.xsd
+        "
+        xmlns:util="http://www.springframework.org/schema/util"
+        xmlns:p="http://www.springframework.org/schema/p"
+        xmlns:context="http://www.springframework.org/schema/context"   
+        >
+    <bean id="propertyConfigurer"
+		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="location">
+			<value>classpath:jdbc.properties</value>
+		</property>
+	</bean>
+
+	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
+		destroy-method="close">
+		<property name="driverClassName">
+			<value>${jdbc.oracle.driverClassName}</value>
+		</property>
+		<property name="url">
+			<value>${jdbc.oracle.url}</value>
+		</property>
+		<property name="username">
+			<value>${jdbc.oracle.username}</value>
+		</property>
+		<property name="password">
+			<value>${jdbc.oracle.password}</value>
+		</property>
+		<property name="maxActive">
+			<value>500</value>
+		</property>
+		<property name="maxWait">
+			<value>180000</value>
+		</property>
+	</bean>
+	
+	<bean id="sessionFactory"
+		class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+		<property name="dataSource" ref="dataSource">
+		</property>
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">
+					org.hibernate.dialect.Oracle9Dialect
+				</prop>
+				<prop key="hibernate.show_sql">false</prop>
+				<prop key="hibernate.query.factory_class">
+					org.hibernate.hql.internal.ast.ASTQueryTranslatorFactory
+				</prop>
+				<!--<prop key="hibernate.cache.use_second_level_cache">true</prop>  启用二级缓存 -->  
+				<!-- 是当spring也配置了ehcache作为缓存时，为了使spring缓存和hibernate缓存使用同一缓存管理器，从而保证缓存的一致性，需要使用org.hibernate.cache.ehcache.SingletonEhCacheRegionFactory。如果仅是hibernate使用ehcache的话，org.hibernate.cache.ehcache.EhCacheRegionFactory即可 -->
+				<!--<prop key="hibernate.cache.region.factory_class">org.hibernate.cache.ehcache.SingletonEhCacheRegionFactory</prop> -->  
+				
+				<prop key="hibernate.jdbc.fetch_size">50</prop>
+				<prop key="hibernate.jdbc.batch_size">50</prop>
+				<prop key="hibernate.temp.use_jdbc_metadata_defaults">false</prop>
+				<!-- 可以避免启动容器时报的一个错误： Disabling contextual LOB creation 
+				as createClob() method threw error : java.lang.reflect.InvocationTargetException 
+				 -->
+			</props>
+		</property>
+		<property name="mappingLocations">
+				<!-- 系统 -->
+				<!--<value>hbm/gy2cupe/IpWhiteList.hbm.xml</value>
+				<value>hbm/guangda/TRADE_WX_NATIVE_INF.hbm.xml</value>
+				<value>hbm/guangda/TRADE_WX_NATIVE_Result_.hbm.xml</value>
+				<value>hbm/guangda/TRADE_WX_JSPAY_INF.hbm.xml</value>
+				<value></value>
+				<value>hbm/gy2cupe/ElectronicSign.hbm.xml</value>
+ 				
+			</list>-->
+			
+			<list>
+				<value>classpath:/hbm/*/*</value>
+			</list>
+		</property>
+	</bean>
+	
+	<!--Transaction -->
+	<bean id="transactionManager"
+		class="org.springframework.orm.hibernate4.HibernateTransactionManager">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<tx:annotation-driven transaction-manager="transactionManager" />
+	<!--<tx:advice id="txAdvice" transaction-manager="transactionManager">
+        <tx:attributes>
+        	<tx:method name="find*" read-only="true" />
+        	<tx:method name="get*" read-only="true" />
+        	<tx:method name="list*" read-only="true" />
+        	<tx:method name="query*" read-only="true" />
+        	<tx:method name="*" propagation="REQUIRED" read-only="false"/>
+        </tx:attributes>
+    </tx:advice>
+    
+    <aop:config >
+        <aop:pointcut id="txPointcut" expression="execution(* *.save(..))" />
+        <aop:advisor advice-ref="txAdvice" pointcut-ref="txPointcut" />
+    </aop:config>
+	
+
+	--><bean id="transactionInterceptor"
+		class="org.springframework.transaction.interceptor.TransactionInterceptor">
+		<property name="transactionManager">
+			<ref bean="transactionManager" />
+		</property>
+		<property name="transactionAttributes">
+			<props>
+				<prop key="*">PROPAGATION_REQUIRED</prop>
+			</props>
+		</property>
+	</bean>
+
+	<!-- 使用自动代理创建事务，任何Service方法均已附带事务 -->
+	<bean class="org.springframework.aop.framework.autoproxy.BeanNameAutoProxyCreator">
+		<property name="beanNames">
+			<list>
+				<value>*Service</value> 
+				<value>*ServiceImpl</value>
+			</list>
+		</property>
+		<property name="interceptorNames">
+			<list>
+				<value>transactionInterceptor</value>
+			</list>
+		</property>
+	</bean>
+    <context:component-scan base-package="com">
+        <context:exclude-filter type="annotation"
+            expression="org.springframework.stereotype.Controller"/>
+        <!--<context:exclude-filter type="annotation"
+            expression="org.springframework.web.bind.annotation.ControllerAdvice"/>
+    --></context:component-scan>
+
+     <import resource="/spring/spring-tasks.xml"/>
+     <import resource="/spring/spring-ehcache.xml"/>
+</beans>

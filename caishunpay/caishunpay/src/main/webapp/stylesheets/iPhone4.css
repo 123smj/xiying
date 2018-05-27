@@ -1,0 +1,15 @@
+@charset "utf-8";
+/* CSS Document */
+
+#sideBar li a {background-size:75px 65px; }
+#sideBar li.info a {background-image:url(../images/nav_tab_info@2x.png);}
+#sideBar li.card a {background-image:url(../images/nav_tab_card@2x.png);}
+#sideBar li.coupon a {background-image:url(../images/nav_tab_coupon@2x.png);}
+#sideBar li a.selected {background-position:0 0;}
+#sideBar li.info a.selected {background-image:url(../images/nav_tab_info_h@2x.png); }
+#sideBar li.card a.selected {background-image:url(../images/nav_tab_card_h@2x.png);}
+#sideBar li.coupon a.selected {background-image:url(../images/nav_tab_coupon_h@2x.png);}
+
+.picList li img {background-image:url(../images/bg_pic@2x.png);}
+
+div.ticket img {background-size:310px 282px; background-image:url(../images/bg_coupon_pic@2x.png);}

@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="com.tuser.bean">
+    <class
+            name="TradeMchtRoleFuncMap"
+            table="TRADE_MCHTROLE_FUNC_MAP"
+    >
+        <meta attribute="sync-DAO">true</meta>
+        <composite-id name="id" class="TradeRoleFuncMapPK">
+            <key-property
+                    name="keyId"
+                    column="KEY_ID"
+                    type="integer"
+            />
+            <key-property
+                    name="valueId"
+                    column="VALUE_ID"
+                    type="integer"
+            />
+        </composite-id>
+        <property
+                name="recUpdOpr"
+                column="REC_UPD_OPR"
+                type="string"
+                not-null="false"
+                length="16"
+        />
+        <property
+                name="recCrtTs"
+                column="REC_CRT_TS"
+                type="string"
+                not-null="false"
+                length="14"
+        />
+        <property
+                name="recUpdTs"
+                column="REC_UPD_TS"
+                type="string"
+                not-null="false"
+                length="14"
+        />
+    </class>
+</hibernate-mapping>

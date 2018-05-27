@@ -1,0 +1,75 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="com.manage.bean">
+	<class
+		name="TradeFuncInf"
+		table="TRADE_FUNC_INF"
+	>
+		<meta attribute="sync-DAO">false</meta>
+		<id name="funcId"
+			column="FUNC_ID"
+			type="integer"
+		>
+		<generator class="assigned" />
+		</id>
+		<property
+			name="funcParentId"
+			column="FUNC_PARENT_ID"
+			type="integer"
+			not-null="false"
+			length="22"
+		/>
+		<property
+			name="funcType"
+			column="FUNC_TYPE"
+			type="string"
+			not-null="false"
+			length="1"
+		/>
+		<property
+			name="funcName"
+			column="FUNC_NAME"
+			type="string"
+			not-null="true"
+			length="50"
+		/>
+		<property
+			name="pageName"
+			column="PAGE_NAME"
+			type="string"
+			not-null="true"
+			length="50"
+		/>
+		<property
+			name="pageUrl"
+			column="PAGE_URL"
+			type="string"
+			not-null="true"
+			length="1024"
+		/>
+		<property
+			name="recUpdOpr"
+			column="REC_UPD_OPR"
+			type="string"
+			not-null="false"
+			length="40"
+		/>
+		<property
+			name="recCrtTs"
+			column="REC_CRT_TS"
+			type="string"
+			not-null="false"
+			length="14"
+		/>
+		<property
+			name="recUpdTs"
+			column="REC_UPD_TS"
+			type="string"
+			not-null="false"
+			length="14"
+		/>
+	</class>	
+</hibernate-mapping>

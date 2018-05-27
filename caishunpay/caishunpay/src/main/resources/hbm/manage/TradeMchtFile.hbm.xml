@@ -1,0 +1,59 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="com.manage.bean">
+	<class
+		name="TradeMchtFile"
+		table="TRADE_MCHT_FILE"
+	>
+		<meta attribute="sync-DAO">true</meta>
+		<id name="fileId"
+			column="FILE_ID"
+			type="integer"
+			>
+		<generator class="increment" />
+		</id>
+		<property
+			name="mchtNo"
+			column="MCHT_NO"
+			type="string"
+		/>
+		<property
+			name="mchtFileType"
+			column="MCHT_FILE_TYPE"
+			type="string"
+		/>
+		<property
+			name="mchtFileName"
+			column="MCHT_FILE_NAME"
+			type="string"
+		/>
+		<property
+			name="mchtFilePath"
+			column="MCHT_FILE_PATH"
+			type="string"
+		/>
+		<property
+			name="crtOprId"
+			column="CRT_OPR_ID"
+			type="string"
+		/>
+		<property
+			name="recCrtTs"
+			column="REC_CRT_TS"
+			type="string"
+		/>
+		<property
+			name="updOprId"
+			column="UPD_OPR_ID"
+			type="string"
+		/>
+		<property
+			name="recUpdTs"
+			column="REC_UPD_TS"
+			type="string"
+		/>
+	</class>	
+</hibernate-mapping>

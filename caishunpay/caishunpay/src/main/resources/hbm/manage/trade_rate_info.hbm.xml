@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.manage.bean">
+		<class name="RateInfo" table="trade_rate_info">
+		<id name="owner_no" column="owner_no" type="string">
+		<generator class="assigned" />
+		</id>
+		<property name="debit_card_fee_value" column="DEBIT_CARD_FEE_VALUE" type="double" />
+		<property name="debit_card_max_fee" column="DEBIT_CARD_MAX_FEE" type="double" />
+		<property name="credit_card_fee_value" column="CREDIT_CARD_FEE_VALUE" type="double" />
+		<property name="wechat_fee_value" column="WECHAT_FEE_VALUE" type="double" />
+		<property name="alipay_fee_value" column="ALIPAY_FEE_VALUE" type="double" />
+		<property name="qq_fee_value" column="qq_fee_value" type="double" />
+		<property name="quickpay_fee_value" column="QUICKPAY_FEE_VALUE" type="double" />
+		<property name="netpay_fee_value" column="netpay_fee_value" type="double" />
+		<property name="aliwap_fee_value" column="aliwap_fee_value" type="double" />
+		<property name="wechatwap_fee_value" column="wechatwap_fee_value" type="double" />
+		<property name="single_extra_fee" column="single_extra_fee" type="integer" />
+		
+		<property name="rate_type" column="rate_type" type="string"></property>
+		<property name="update_time" column="update_time" type="string"></property>
+		<property name="opr_id" column="opr_id" type="string"></property>
+		
+	</class>
+</hibernate-mapping>

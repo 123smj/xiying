@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.trade.bean.own">
+	<class name="JumpListBean" table="trade_jump_list">
+		<composite-id>
+			<key-property name="jump_group" column="jump_group"></key-property>
+			<key-property name="trade_source" column="trade_source"></key-property>
+			<key-property name="channel_id" column="channel_id"></key-property>
+			<key-property name="channel_mcht_no" column="channel_mcht_no"></key-property>
+		</composite-id>
+		<property name="group_name" column="group_name"></property>
+		<property name="weight" column="weight" type="integer"></property>
+	</class>
+</hibernate-mapping>

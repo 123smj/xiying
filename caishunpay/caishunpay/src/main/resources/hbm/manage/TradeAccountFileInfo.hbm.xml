@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.account.bean">
+		<class name="TradeAccountFileInfo" table="trade_account_file_info">
+			<id name="offerSeq" column="offerSeq" type="integer">
+			<generator class="increment" />
+		</id>
+		<property name="payType" column="payType" type="string"></property>
+		<property name="offerTime" column="offerTime" type="string"></property>
+		<property name="oprId" column="oprId" type="string"></property>
+		<property name="oprTime" column="oprTime" type="string"></property>
+		<property name="offerDoc" column="offerDoc" type="string"></property>
+		<property name="status" column="status" type="string"></property>
+		<property name="description" column="description" type="string"></property>
+		<property name="checkTime" column="check_time" type="string"></property>
+		<property name="checkOpr" column="check_opr" type="string"></property>
+	</class>
+</hibernate-mapping>

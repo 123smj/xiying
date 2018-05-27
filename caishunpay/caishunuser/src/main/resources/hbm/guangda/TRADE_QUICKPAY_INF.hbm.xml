@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.trade.bean">
+    <class name="QuickpayBean" table="TRADE_QUICKPAY_INF" dynamic-insert="true"
+           dynamic-update="true">
+        <id name="out_trade_no" column="out_trade_no" type="string">
+            <generator class="assigned"/>
+        </id>
+
+        <property name="cardHolderName" column="card_holder_name" type="string"></property>
+        <property name="cardNo" column="card_no" type="string"></property>
+        <property name="cardType" column="card_type" type="string"></property>
+        <property name="expireDate" column="expire_date" type="string"></property>
+        <property name="cvv" column="cvv" type="string"></property>
+        <property name="bankCode" column="bank_code" type="string"></property>
+        <property name="bankName" column="bank_name" type="string"></property>
+        <property name="cerType" column="cer_Type" type="string"></property>
+        <property name="cerNumber" column="cer_number" type="string"></property>
+        <property name="mobileNum" column="mobilenum" type="string"></property>
+        <property name="yzm" column="yzm" type="string"></property>
+
+        <property name="service" column="service" type="string"></property>
+        <property name="version" column="version" type="string"></property>
+        <property name="charset" column="charset" type="string"></property>
+        <property name="sign_type" column="sign_type" type="string"></property>
+        <property name="mch_id" column="mch_id" type="string"></property>
+        <property name="device_info" column="device_info" type="string"></property>
+        <property name="body" column="body" type="string"></property>
+        <property name="attach" column="attach" type="string"></property>
+        <property name="total_fee" column="total_fee" type="integer"></property>
+        <property name="mch_create_ip" column="mch_create_ip" type="string"></property>
+        <property name="notify_url" column="notify_url" type="string"></property>
+        <property name="time_start" column="time_start" type="string"></property>
+        <property name="time_expire" column="time_expire" type="string"></property>
+        <property name="nonce_str" column="nonce_str" type="string"></property>
+        <property name="sign" column="sign" type="string"></property>
+        <property name="message" column="message" type="string"></property>
+        <property name="result_code" column="result_code" type="string"></property>
+        <property name="err_code" column="err_code" type="string"></property>
+        <property name="err_msg" column="err_msg" type="string"></property>
+
+        <property name="gymchtId" column="gy_mcht_id" type="string"></property>
+        <property name="channel_id" column="channel_id" type="string"></property>
+        <property name="gy_notifyUrl" column="gy_notifyUrl" type="string"></property>
+        <property name="tradeSn" column="tradeSn" type="string"></property>
+        <property name="trade_source" column="trade_source" type="string"></property>
+
+        <property name="trade_type" column="trade_type" type="string"></property>
+        <property name="pay_result" column="pay_result" type="string"></property>
+        <property name="pay_info" column="pay_info" type="string"></property>
+        <property name="transaction_id" column="transaction_id" type="string"></property>
+        <property name="out_transaction_id" column="out_transaction_id" type="string"></property>
+        <property name="fee_type" column="fee_type" type="string"></property>
+        <property name="time_end" column="time_end" type="string"></property>
+        <property name="trade_state" column="trade_state" type="string"></property>
+        <property name="t0Flag" column="t0Flag" type="string"></property>
+        <property name="gynotify_back" column="gynotify_back" type="string"></property>
+
+        <property name="token_id" column="token_id" type="string"></property>
+        <property name="callback_url" column="callback_url" type="string"></property>
+        <property name="limit_credit_p" column="limit_credit_p" type="string"></property>
+        <property name="resp_code" column="resp_code" type="string"></property>
+        <property name="notify_num" column="notify_num" type="integer"></property>
+        <property name="notify_data" column="notify_data" type="string"></property>
+        <property name="nofity_time" column="nofity_time" type="string"></property>
+        <property name="isAcceptYzm" column="is_accept_yzm" type="string"></property>
+        <property name="payUrl" column="pay_url" type="string"></property>
+
+
+    </class>
+</hibernate-mapping>

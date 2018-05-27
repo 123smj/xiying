@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.account.bean">
+		<class name="TradeAccountFileDetail" table="trade_account_file_detail">
+		<composite-id >
+			<key-property name="dfsn" column="dfsn" type="string"></key-property>
+			<key-property name="mcht_no" column="mcht_no" type="string"></key-property>
+		</composite-id>
+		<property name="offerSeq" column="offerseq" type="integer"></property>
+		<property name="offerDoc" column="offerdoc" type="string"></property>
+		<property name="mcht_name" column="mcht_name" type="string"></property>
+		<property name="trade_amount" column="trade_amount" type="integer"></property>
+		<property name="mcht_income" column="mcht_income" type="integer"></property>
+		<property name="offer_time" column="offer_time" type="string"></property>
+		<property name="trade_type" column="trade_type" type="string"></property>
+		<property name="opr_time" column="opr_time" type="string"></property>
+		<property name="status" column="status" type="string"></property>
+		
+	</class>
+</hibernate-mapping>

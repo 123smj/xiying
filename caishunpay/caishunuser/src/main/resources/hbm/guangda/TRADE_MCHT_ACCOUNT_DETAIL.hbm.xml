@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.account.bean">
+    <class name="TradeMchtAccountDetail" table="TRADE_MCHT_ACCOUNT_DETAIL">
+        <id name="accountOrderNo" column="account_order_no" type="string">
+            <generator class="assigned"/>
+        </id>
+        <!-- <version name="version" column="version" type="integer"></version> -->
+
+        <property name="mchtNo" column="mcht_no" type="string"></property>
+        <property name="receiptPan" column="receipt_pan" type="string"></property>
+        <property name="receiptBankNm" column="receipt_bank_nm" type="string"></property>
+        <property name="receiptName" column="receipt_name" type="string"></property>
+        <property name="receiptAmount" column="receipt_amount" type="integer"></property>
+        <property name="receiptTime" column="receipt_time" type="string"></property>
+        <property name="status" column="status" type="string"></property>
+        <property name="mchtRate" column="mcht_rate" type="double"></property>
+        <property name="mchtMaxFee" column="mcht_max_fee" type="integer"></property>
+        <property name="mchtFeeValue" column="mcht_fee_value" type="integer"></property>
+        <property name="accType" column="acc_type" type="string"></property>
+
+        <property name="branchNo" column="branch_no" type="string"></property>
+        <property name="costRate" column="cost_rate" type="double"></property>
+        <property name="branchRate" column="branch_rate" type="double"></property>
+        <property name="costMaxFee" column="cost_max_fee" type="integer"></property>
+        <property name="branchMaxFee" column="branch_max_fee" type="integer"></property>
+        <property name="costFeeValue" column="cost_fee_value" type="integer"></property>
+        <property name="branchFeeValue" column="branch_fee_value" type="integer"></property>
+        <property name="mchtIncome" column="mcht_income" type="integer"></property>
+        <property name="branchIncome" column="branch_income" type="integer"></property>
+        <property name="costIncome" column="cost_income" type="integer"></property>
+        <property name="totalAmount" column="total_amount" type="integer"></property>
+
+        <property name="payType" column="pay_type" type="string"></property>
+        <property name="curType" column="cur_type" type="string"></property>
+        <property name="settleNo" column="settle_no" type="string"></property>
+        <property name="acctType" column="acct_type" type="string"></property>
+        <property name="mobile" column="mobile" type="string"></property>
+        <property name="memo" column="memo" type="string"></property>
+        <property name="timeEnd" column="time_end" type="string"></property>
+        <property name="tradeSource" column="trade_source" type="string"/>
+        <property name="dfSn" column="df_sn" type="string"/>
+
+        <property name="dfDesc" column="df_desc" type="string"/>
+        <property name="dfStatus" column="df_status" type="string"/>
+        <property name="single_extra_fee" column="single_extra_fee" type="integer"/>
+    </class>
+</hibernate-mapping>

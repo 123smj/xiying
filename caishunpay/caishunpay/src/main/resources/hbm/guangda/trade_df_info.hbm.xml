@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.trade.bean">
+	<class name="TradeDfbean" table="TRADE_Df_info">
+		<id name="out_trade_no" column="out_trade_no" type="string">
+			<generator class="assigned" />
+		</id>
+		<property name="tradeSn" column="tradeSn" type="string"></property>
+		<property name="transaction_id" column="transaction_id" type="string"></property>
+		<property name="realname" column="realname" type="string"></property>
+		<property name="idcard" column="idcard" type="string"></property>
+		<property name="bankcardnum" column="bankcardnum" type="string"></property>
+		<property name="bankname" column="bankname" type="string"></property>
+		<property name="subbranch" column="subbranch" type="string"></property>
+		<property name="pcnaps" column="pcnaps" type="string"></property>
+		<property name="stlType" column="stlType" type="string"></property>
+		<property name="money" column="money" type="integer"></property>
+		<property name="free" column="free" type="integer"></property>
+		<property name="fee" column="fee" type="integer"></property>
+		<property name="t0RespCode" column="t0RespCode" type="string"></property>
+		<property name="t0RespDesc" column="t0RespDesc" type="string"></property>
+		<property name="t0_status" column="t0_status" type="string"></property>
+		<property name="time_start" column="time_start" type="string"></property>
+		<property name="time_end" column="time_end" type="string"></property>
+	</class>
+</hibernate-mapping>

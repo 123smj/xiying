@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SELECTS>
+	<!--
+		value取值 STATIC: STATIC_MODE 静态数据, SQL: SQL_MODE 执行SQL查询, DYNAMIC:
+		DYNAMIC_MODE 调用接口方法
+	-->
+    <TXN_ID id="MCHT_INFO">
+		<EXTRACT_TYPE value="DYNAMIC">
+			<STATIC_MODE>
+				<TBL_NM></TBL_NM>
+				<FLD_NM></FLD_NM>
+			</STATIC_MODE>
+			<SQL_MODE>
+				<SQL>
+					<![CDATA[]]>
+				</SQL>
+				<QUERY_DAO></QUERY_DAO>
+			</SQL_MODE>
+			<DYNAMIC_MODE>
+				<METHOD name="getMchtInfo" />
+			</DYNAMIC_MODE>
+		</EXTRACT_TYPE>
+	</TXN_ID>
+	
+	 <TXN_ID id="MCHT_INFO_TMP">
+		<EXTRACT_TYPE value="DYNAMIC">
+			<STATIC_MODE>
+				<TBL_NM></TBL_NM>
+				<FLD_NM></FLD_NM>
+			</STATIC_MODE>
+			<SQL_MODE>
+				<SQL>
+					<![CDATA[]]>
+				</SQL>
+				<QUERY_DAO></QUERY_DAO>
+			</SQL_MODE>
+			<DYNAMIC_MODE>
+				<METHOD name="getMchtInfoTmp" />
+			</DYNAMIC_MODE>
+		</EXTRACT_TYPE>
+	</TXN_ID>
+	
+	<TXN_ID id="CHANNEL_MCHT_NO">
+		<EXTRACT_TYPE value="DYNAMIC">
+			<STATIC_MODE>
+				<TBL_NM></TBL_NM>
+				<FLD_NM></FLD_NM>
+			</STATIC_MODE>
+			<SQL_MODE>
+				<SQL>
+					<![CDATA[]]>
+				</SQL>
+				<QUERY_DAO></QUERY_DAO>
+			</SQL_MODE>
+			<DYNAMIC_MODE>
+				<METHOD name="getChannelMchtNo" />
+			</DYNAMIC_MODE>
+		</EXTRACT_TYPE>
+	</TXN_ID>
+	
+	<TXN_ID id="CHANNEL_MCHT_NO_TRUE">
+		<EXTRACT_TYPE value="DYNAMIC">
+			<STATIC_MODE>
+				<TBL_NM></TBL_NM>
+				<FLD_NM></FLD_NM>
+			</STATIC_MODE>
+			<SQL_MODE>
+				<SQL>
+					<![CDATA[]]>
+				</SQL>
+				<QUERY_DAO></QUERY_DAO>
+			</SQL_MODE>
+			<DYNAMIC_MODE>
+				<METHOD name="getChannelMchtNoTrue" />
+			</DYNAMIC_MODE>
+		</EXTRACT_TYPE>
+	</TXN_ID>
+	
+	<TXN_ID id="CHANNEL_MCHT_NO_TEMP">
+		<EXTRACT_TYPE value="DYNAMIC">
+			<STATIC_MODE>
+				<TBL_NM></TBL_NM>
+				<FLD_NM></FLD_NM>
+			</STATIC_MODE>
+			<SQL_MODE>
+				<SQL>
+					<![CDATA[]]>
+				</SQL>
+				<QUERY_DAO></QUERY_DAO>
+			</SQL_MODE>
+			<DYNAMIC_MODE>
+				<METHOD name="getChannelMchtNoTemp" />
+			</DYNAMIC_MODE>
+		</EXTRACT_TYPE>
+	</TXN_ID>
+	
+	<TXN_ID id="CHANNEL_ID">
+		<EXTRACT_TYPE value="DYNAMIC">
+			<STATIC_MODE>
+				<TBL_NM></TBL_NM>
+				<FLD_NM></FLD_NM>
+			</STATIC_MODE>
+			<SQL_MODE>
+				<SQL>
+					<![CDATA[]]>
+				</SQL>
+				<QUERY_DAO></QUERY_DAO>
+			</SQL_MODE>
+			<DYNAMIC_MODE>
+				<METHOD name="getChannelId" />
+			</DYNAMIC_MODE>
+		</EXTRACT_TYPE>
+	</TXN_ID>
+	
+	<TXN_ID id="COMPANY_ID">
+		<EXTRACT_TYPE value="DYNAMIC">
+			<STATIC_MODE>
+				<TBL_NM></TBL_NM>
+				<FLD_NM></FLD_NM>
+			</STATIC_MODE>
+			<SQL_MODE>
+				<SQL>
+					<![CDATA[]]>
+				</SQL>
+				<QUERY_DAO></QUERY_DAO>
+			</SQL_MODE>
+			<DYNAMIC_MODE>
+				<METHOD name="getCompanyId" />
+			</DYNAMIC_MODE>
+		</EXTRACT_TYPE>
+	</TXN_ID>
+	
+	<TXN_ID id="JUMP_GROUP">
+		<EXTRACT_TYPE value="DYNAMIC">
+			<STATIC_MODE>
+				<TBL_NM></TBL_NM>
+				<FLD_NM></FLD_NM>
+			</STATIC_MODE>
+			<SQL_MODE>
+				<SQL>
+					<![CDATA[]]>
+				</SQL>
+				<QUERY_DAO></QUERY_DAO>
+			</SQL_MODE>
+			<DYNAMIC_MODE>
+				<METHOD name="getJumpGroup" />
+			</DYNAMIC_MODE>
+		</EXTRACT_TYPE>
+	</TXN_ID>
+	
+	<TXN_ID id="API_LIST">
+		<EXTRACT_TYPE value="DYNAMIC">
+			<STATIC_MODE>
+				<TBL_NM></TBL_NM>
+				<FLD_NM></FLD_NM>
+			</STATIC_MODE>
+			<SQL_MODE>
+				<SQL>
+					<![CDATA[]]>
+				</SQL>
+				<QUERY_DAO></QUERY_DAO>
+			</SQL_MODE>
+			<DYNAMIC_MODE>
+				<METHOD name="getApiList" />
+			</DYNAMIC_MODE>
+		</EXTRACT_TYPE>
+	</TXN_ID>
+	<TXN_ID id="REPORT_LIST">
+		<EXTRACT_TYPE value="DYNAMIC">
+			<STATIC_MODE>
+				<TBL_NM></TBL_NM>
+				<FLD_NM></FLD_NM>
+			</STATIC_MODE>
+			<SQL_MODE>
+				<SQL>
+					<![CDATA[]]>
+				</SQL>
+				<QUERY_DAO></QUERY_DAO>
+			</SQL_MODE>
+			<DYNAMIC_MODE>
+				<METHOD name="getReportList" />
+			</DYNAMIC_MODE>
+		</EXTRACT_TYPE>
+	</TXN_ID>
+	
+</SELECTS>

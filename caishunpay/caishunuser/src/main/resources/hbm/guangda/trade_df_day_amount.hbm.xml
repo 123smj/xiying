@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.trade.bean">
+    <class name="TradeDfDayamount" table="TRADE_DF_DAY_AMOUNT">
+        <composite-id>
+            <key-property name="bank_card_num" column="bank_card_num"></key-property>
+            <key-property name="df_day" column="df_day"></key-property>
+        </composite-id>
+        <property name="bank_name" column="bank_name" type="string"></property>
+        <property name="real_name" column="real_name" type="string"></property>
+        <property name="money_amount" column="money_amount" type="integer"></property>
+        <property name="mcht_no" column="mcht_no" type="string"></property>
+        <property name="update_time" column="update_time" type="string"></property>
+    </class>
+</hibernate-mapping>

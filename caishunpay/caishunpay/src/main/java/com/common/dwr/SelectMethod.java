@@ -1,0 +1,227 @@
+/*
+ * Decompiled with CFR 0_124.
+ */
+package com.common.dwr;
+
+import com.common.dao.ICommQueryDAO;
+import com.gy.system.SysParamUtil;
+import com.gy.util.CommonFunction;
+import com.gy.util.ContextUtil;
+import com.gy.util.StringUtil;
+import com.manage.bean.OprInfo;
+import java.util.LinkedHashMap;
+import java.util.List;
+
+public class SelectMethod {
+    static ICommQueryDAO commQueryDAO = (ICommQueryDAO)ContextUtil.getBean("commQueryDAO");
+
+    public static LinkedHashMap<String, String> getBrhLvlByOprInfo(Object[] params) {
+        LinkedHashMap<String, String> dataMap = new LinkedHashMap<String, String>();
+        OprInfo operator = (OprInfo)params[0];
+        if ("supers".endsWith(operator.getCompany_id())) {
+            dataMap.put("1", "\u5206\u884c");
+            dataMap.put("2", "\u652f\u884c");
+            dataMap.put("3", "\u7f51\u70b9");
+        } else {
+            dataMap.put("2", "\u652f\u884c");
+            dataMap.put("3", "\u7f51\u70b9");
+        }
+        return dataMap;
+    }
+
+    public static LinkedHashMap<String, String> getDaifuPan(Object[] params) {
+        LinkedHashMap<String, String> dataMap = new LinkedHashMap<String, String>();
+        StringBuffer sql = new StringBuffer("select bank_card_no,bank_name ||'-'|| cust_name from tbl_daifu_group where 1=1");
+        if (params != null && params.length >= 2 && params[1] != null) {
+            String group_id = params[1].toString();
+            sql.append(" and group_id = '").append(group_id).append("'");
+        }
+        List<Object[]> dataList = commQueryDAO.findBySQLQuery(sql.toString());
+        for (Object[] obj : dataList) {
+            dataMap.put(obj[0].toString().trim(), String.valueOf(obj[0].toString().trim()) + "-" + StringUtil.trans2Str(obj[1]));
+        }
+        return dataMap;
+    }
+
+    public static LinkedHashMap<String, String> getMchtInfo(Object[] params) {
+        OprInfo operator = (OprInfo)params[0];
+        LinkedHashMap<String, String> dataMap = new LinkedHashMap<String, String>();
+        StringBuffer sql = new StringBuffer("select mcht_no,mcht_name from trade_qrcode_mcht_info where 1=1");
+        String company_id = operator.getCompany_id();
+        if (operator == null || !"1".equals(operator.getOpr_type())) {
+            sql.append(" and company_id = '").append(company_id).append("'");
+        } else if (params != null && params.length >= 2 && params[1] != null) {
+            String select_company_id = params[1].toString();
+            sql.append(" and company_id = '").append(select_company_id).append("'");
+        }
+        sql.append(" order by crt_time desc");
+        List<Object[]> dataList = commQueryDAO.findBySQLQuery(sql.toString());
+        for (Object[] obj : dataList) {
+            dataMap.put(obj[0].toString().trim(), String.valueOf(obj[0].toString().trim()) + "-" + obj[1]);
+        }
+        return dataMap;
+    }
+
+    public static LinkedHashMap<String, String> getMchtInfoTmp(Object[] params) {
+        OprInfo operator = (OprInfo)params[0];
+        LinkedHashMap<String, String> dataMap = new LinkedHashMap<String, String>();
+        StringBuffer sql = new StringBuffer("select mcht_no,mcht_name from trade_qrcode_mcht_info_tmp where 1=1");
+        String company_id = operator.getCompany_id();
+        if (operator == null || !"1".equals(operator.getOpr_type())) {
+            sql.append(" and company_id = '").append(company_id).append("'");
+        }
+        sql.append(" order by crt_time desc");
+        List<Object[]> dataList = commQueryDAO.findBySQLQuery(sql.toString());
+        for (Object[] obj : dataList) {
+            dataMap.put(obj[0].toString().trim(), String.valueOf(obj[0].toString().trim()) + "-" + StringUtil.trans2Str(obj[1]));
+        }
+        return dataMap;
+    }
+
+    public static LinkedHashMap<String, String> getChannelMchtNo(Object[] params) {
+        OprInfo operator = (OprInfo)params[0];
+        LinkedHashMap<String, String> dataMap = new LinkedHashMap<String, String>();
+        StringBuffer sql = new StringBuffer("select channel_mcht_no,channel_name from trade_qrcode_channel_inf where 1=1");
+        if (params != null && params.length >= 2 && params[1] != null) {
+            String channel_id = params[1].toString();
+            sql.append(" and channel_id = '").append(channel_id).append("'");
+        }
+        sql.append(" order by crt_time desc");
+        List<Object[]> dataList = commQueryDAO.findBySQLQuery(sql.toString());
+        for (Object[] obj : dataList) {
+            dataMap.put(obj[0].toString().trim(), String.valueOf(obj[0].toString().trim()) + "-" + StringUtil.trans2Str(obj[1]));
+        }
+        return dataMap;
+    }
+
+    public static LinkedHashMap<String, String> getChannelMchtNoTemp(Object[] params) {
+        LinkedHashMap<String, String> dataMap = new LinkedHashMap<String, String>();
+        StringBuffer sql = new StringBuffer("select channel_mcht_no,channel_name from trade_qrcode_channel_inf where status in('01','09') and channel_id='hfbank' ");
+        if (params != null && params.length >= 2 && params[1] != null) {
+            String channel_id = params[1].toString();
+            sql.append(" and channel_id = '").append(channel_id).append("'");
+        }
+        sql.append(" order by crt_time desc");
+        List<Object[]> dataList = commQueryDAO.findBySQLQuery(sql.toString());
+        for (Object[] obj : dataList) {
+            dataMap.put(obj[0].toString().trim(), String.valueOf(obj[0].toString().trim()) + "-" + StringUtil.trans2Str(obj[1]));
+        }
+        return dataMap;
+    }
+
+    public static LinkedHashMap<String, String> getChannelMchtNoTrue(Object[] params) {
+        OprInfo operator = (OprInfo)params[0];
+        LinkedHashMap<String, String> dataMap = new LinkedHashMap<String, String>();
+        StringBuffer sql = new StringBuffer("select channel_mcht_no,channel_name from trade_qrcode_channel_inf where status='00' ");
+        if (params != null && params.length >= 2 && params[1] != null) {
+            String channel_id = params[1].toString();
+            sql.append(" and channel_id = '").append(channel_id).append("'");
+        }
+        sql.append(" order by crt_time desc");
+        List<Object[]> dataList = commQueryDAO.findBySQLQuery(sql.toString());
+        for (Object[] obj : dataList) {
+            dataMap.put(obj[0].toString().trim(), String.valueOf(obj[0].toString().trim()) + "-" + StringUtil.trans2Str(obj[1]));
+        }
+        return dataMap;
+    }
+
+    public static LinkedHashMap<String, String> getChannelId(Object[] params) {
+        OprInfo operator = (OprInfo)params[0];
+        LinkedHashMap<String, String> dataMap = new LinkedHashMap<String, String>();
+        StringBuffer sql = new StringBuffer("select KEY,VALUE from CST_SYS_PARAM where OWNER='CHANNEL_ID' ");
+        List<Object[]> dataList = commQueryDAO.findBySQLQuery(sql.toString());
+        for (Object[] obj : dataList) {
+            dataMap.put(obj[0].toString().trim(), String.valueOf(obj[0].toString().trim()) + "-" + StringUtil.trans2Str(obj[1]));
+        }
+        return dataMap;
+    }
+
+    public static LinkedHashMap<String, String> getCompanyId(Object[] params) {
+        OprInfo operator = (OprInfo)params[0];
+        LinkedHashMap<String, String> dataMap = new LinkedHashMap<String, String>();
+        StringBuffer sql = new StringBuffer("select distinct company_id,company_name from trade_opr_info where 1=1 ");
+        sql.append(CommonFunction.buildCommanySql("company_id", operator));
+        sql.append("order by company_id asc");
+        List<Object[]> dataList = commQueryDAO.findBySQLQuery(sql.toString());
+        for (Object[] obj : dataList) {
+            dataMap.put(obj[0].toString().trim(), String.valueOf(obj[0].toString().trim()) + "-" + StringUtil.trans2Str(obj[1]));
+        }
+        return dataMap;
+    }
+
+    public static LinkedHashMap<String, String> getJumpGroup(Object[] params) {
+        OprInfo operator = (OprInfo)params[0];
+        LinkedHashMap<String, String> dataMap = new LinkedHashMap<String, String>();
+        StringBuffer sql = new StringBuffer("select distinct jump_group,group_name from trade_jump_list order by jump_group asc");
+        List<Object[]> dataList = commQueryDAO.findBySQLQuery(sql.toString());
+        for (Object[] obj : dataList) {
+            dataMap.put(obj[0].toString().trim(), String.valueOf(obj[0].toString().trim()) + "-" + StringUtil.trans2Str(obj[1]));
+        }
+        return dataMap;
+    }
+
+    public static LinkedHashMap<String, String> getApiList(Object[] params) {
+        LinkedHashMap<String, String> dataMap = new LinkedHashMap<String, String>();
+        StringBuffer sql = new StringBuffer("select KEY,VALUE from CST_SYS_PARAM where OWNER='API_LIST' ");
+        List<Object[]> dataList = commQueryDAO.findBySQLQuery(sql.toString());
+        for (Object[] obj : dataList) {
+            dataMap.put(StringUtil.trans2Str(obj[1]), String.valueOf(SysParamUtil.getParam("API_UPLOAD_PATH")) + StringUtil.trans2Str(obj[1]));
+        }
+        return dataMap;
+    }
+
+    public static LinkedHashMap<String, String> getReportList(Object[] params) {
+        OprInfo operator = (OprInfo)params[0];
+        LinkedHashMap<String, String> dataMap = new LinkedHashMap<String, String>();
+        StringBuffer sql = new StringBuffer("select KEY,VALUE,DESCR from CST_SYS_PARAM where OWNER='REPORT_LIST' ");
+        if (operator == null || !"1".equals(operator.getOpr_type())) {
+            sql.append(" and KEY != 'qrc_all_report'");
+        }
+        List<Object[]> dataList = commQueryDAO.findBySQLQuery(sql.toString());
+        for (Object[] obj : dataList) {
+            dataMap.put(StringUtil.trans2Str(obj[1]), StringUtil.trans2Str(obj[2]));
+        }
+        return dataMap;
+    }
+
+    public static LinkedHashMap<String, String> getYakuProvince(Object[] params) {
+        LinkedHashMap<String, String> dataMap = new LinkedHashMap<String, String>();
+        List<Object[]> list = null;
+        String sql = "select trim(KEY),trim(KEY) ||' - '||trim(VALUE) from CST_SYS_PARAM where owner='YAKU_PROVINCE'";
+        list = commQueryDAO.findBySQLQuery(sql);
+        for (Object[] obj : list) {
+            dataMap.put(obj[0].toString().trim(), obj[1].toString().trim());
+        }
+        return dataMap;
+    }
+
+    public static LinkedHashMap<String, String> getYakuCity(Object[] params) {
+        LinkedHashMap<String, String> dataMap = new LinkedHashMap<String, String>();
+        List<Object[]> list = null;
+        StringBuffer sql = new StringBuffer("select trim(KEY),trim(KEY) ||' - '||trim(VALUE) from CST_SYS_PARAM where owner='YAKU_CITY'");
+        if (params != null && params.length >= 2 && params[1] != null) {
+            String province = params[1].toString();
+            sql.append(" and descr = '").append(province).append("'");
+        }
+        list = commQueryDAO.findBySQLQuery(sql.toString());
+        for (Object[] obj : list) {
+            dataMap.put(obj[0].toString().trim(), obj[1].toString().trim());
+        }
+        return dataMap;
+    }
+
+    public static LinkedHashMap<String, String> getYakuDistrict(Object[] params) {
+        LinkedHashMap<String, String> dataMap = new LinkedHashMap<String, String>();
+        List<Object[]> list = null;
+        StringBuffer sql = new StringBuffer("select trim(KEY),trim(KEY) ||' - '||trim(VALUE) from CST_SYS_PARAM where owner='YAKU_DISTRICT'");
+        if (params != null && params.length >= 2 && params[1] != null) {
+            String city = params[1].toString();
+            sql.append(" and descr = '").append(city).append("'");
+        }
+        list = commQueryDAO.findBySQLQuery(sql.toString());
+        for (Object[] obj : list) {
+            dataMap.put(obj[0].toString().trim(), obj[1].toString().trim());
+        }
+        return dataMap;
+    }
+}

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.manage.bean">
+    <class name="OprInfo" table="trade_opr_info">
+        <id name="opr_id" column="opr_id" type="string">
+            <generator class="assigned"/>
+        </id>
+        <property name="opr_degree" column="opr_degree" type="integer"></property>
+        <property name="opr_sta" column="opr_sta" type="string"></property>
+        <property name="opr_name" column="opr_name" type="string"></property>
+        <property name="opr_gender" column="opr_gender" type="string"></property>
+        <property name="register_dt" column="register_dt" type="string"></property>
+        <property name="opr_pwd" column="opr_pwd" type="string"></property>
+        <property name="opr_mobile" column="opr_mobile" type="string"></property>
+        <property name="opr_email" column="opr_email" type="string"></property>
+        <property name="last_upd_ts" column="last_upd_ts" type="string"></property>
+        <property name="opr_type" column="opr_type" type="string"></property>
+        <property name="company_id" column="company_id" type="string"></property>
+        <property name="company_name" column="company_name" type="string"></property>
+        <property name="address" column="address" type="string"></property>
+        <property name="connact_name" column="connact_name" type="string"></property>
+        <property name="identify_no" column="identify_no" type="string"></property>
+    </class>
+</hibernate-mapping>

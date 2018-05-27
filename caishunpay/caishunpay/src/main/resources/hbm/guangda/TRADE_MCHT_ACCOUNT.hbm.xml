@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.account.bean">
+	<class name="TradeMchtAccount" table="TRADE_MCHT_ACCOUNT">
+		<id name="mchtNo" column="mcht_no" type="string">
+			<generator class="assigned" />
+		</id>
+		<version name="version" column="version" type="integer"></version>
+		
+		<property name="balance" column="balance" type="integer"></property>
+		<property name="cashMin" column="cash_min" type="integer"></property>
+		<property name="cashMax" column="cash_max" type="integer"></property>
+		<property name="status" column="status" type="string"></property>
+		<property name="updateTime" column="update_time" type="string"></property>
+		
+	</class>
+</hibernate-mapping>

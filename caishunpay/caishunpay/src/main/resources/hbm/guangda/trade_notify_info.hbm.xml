@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.trade.bean">
+	<class name="TradeNotifyBean" table="trade_notify_info">
+		<id name="out_trade_no" column="out_trade_no" type="string">
+			<generator class="assigned" />
+		</id>
+		<property name="nativ_time_end" column="nativ_time_end" type="string"></property>
+		<property name="notify_time" column="notify_time" type="string"></property>
+		<property name="returnData" column="returnData" type="string"></property>
+		<property name="notify_num" column="notify_num" type="integer"></property>
+	</class>
+</hibernate-mapping>

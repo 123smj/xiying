@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.trade.bean.own">
+	<class name="com.trade.bean.own.PayChannelInf" table="trade_qrcode_CHANNEL_INF">
+		<composite-id>
+			<key-property name="channel_id" column="channel_id"></key-property>
+			<key-property name="channel_mcht_no" column="channel_mcht_no"></key-property>
+		</composite-id>
+		
+		<property name="channel_name" column="channel_name" type="string"></property>
+		<property name="t0Flag" column="t0Flag" type="string"></property>
+		<property name="secret_key" column="secret_key" type="string"></property>
+		<property name="agtId" column="agtId" type="string"></property>
+		<property name="primary_key" column="primary_key" type="string"></property>
+		<property name="wechat_fee_value" column="WECHAT_FEE_VALUE" type="double" />
+		<property name="alipay_fee_value" column="ALIPAY_FEE_VALUE" type="double" />
+		<property name="quickpay_fee_value" column="QUICKPAY_FEE_VALUE" type="double" />
+		<property name="netpay_fee_value" column="netpay_fee_value" type="double" />
+		
+		<property name="update_time" column="update_time" type="string"></property>
+		<property name="update_opr" column="update_opr" type="string"></property>
+		<property name="status" column="status" type="string"></property>
+		<property name="pass_word" column="pass_word" type="string"></property>
+		<property name="crt_time" column="crt_time" type="string"></property>
+		
+		<property name="phone" column="phone" type="string"></property>
+		<property name="identity_no" column="identity_no" type="string"></property>
+		<property name="bank_card_no" column="bank_card_no" type="string"></property>
+		<property name="bank_name" column="bank_name" type="string"></property>
+		<property name="card_name" column="card_name" type="string"></property>
+		<property name="address" column="address" type="string"></property>
+		<property name="jump_url" column="JUMP_URL" type="string"></property>
+	</class>
+</hibernate-mapping>
